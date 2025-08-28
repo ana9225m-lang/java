@@ -1,0 +1,53 @@
+// Fade background images
+const bgImages = [document.getElementById("bg1"), document.getElementById("bg2"), document.getElementById("bg3")];
+let current = 0;
+setInterval(() => {
+  bgImages[current].classList.remove("active");
+  current = (current + 1) % bgImages.length;
+  bgImages[current].classList.add("active");
+}, 5000);
+// Tribute links (înlocuiește cu link-urile reale)
+const tributeLinks = {
+  5: "https://throne.com/celestschurch/item/D4649731-60A5-4E82-BEF5-10E6DC83BA3A",
+  10: "https://throne.com/celestschurch/item/DA65A111-779E-4BF3-8FB1-4E90545DA571",
+  20: "https://throne.com/celestschurch/item/FE7C6B9F-9837-4F53-8A85-63E695C0EBE3",
+  50: "https://throne.com/celestschurch/item/553723BA-B9DC-4960-B79B-0FEA04096EB6"
+};
+
+// Animatie roata
+const wheel = document.getElementById("wheel");
+function spinFate() {
+  const tributeAmounts = Object.keys(tributeLinks).map(Number);
+  const tribute = tributeAmounts[Math.floor(Math.random() * tributeAmounts.length)];
+  const rotation = 720 + Math.floor(Math.random() * 360);
+  wheel.style.transform = rotate(${rotation}deg);
+  setTimeout(() => {
+    alert(🎡 The Wheel of Fate demands: $${tribute}. Tribute now.);
+    window.open(tributeLinks[tribute], "_blank");
+  }, 2000);
+}
+
+// Animatie tarot
+const tarotCard = document.getElementById("tarot-card");
+function drawTarot() {
+  const cards = [
+    { name: "The Empress", tribute: 10 },
+    { name: "The Devil", tribute: 30 },
+    { name: "Death", tribute: 20 },
+    { name: "The Tower", tribute: 50 },
+    { name: "Judgment", tribute: 15 }
+  ];
+  const card = cards[Math.floor(Math.random() * cards.length)];
+  
+  tarotCard.style.transform = "rotateY(180deg)";
+  setTimeout(() => {
+    alert(🃏 The Tarot reveals: ${card.name}\nCelest demands $${card.tribute}.);
+    window.open(tributeLinks[card.tribute], "_blank");
+    tarotCard.style.transform = "rotateY(0deg)";
+  }, 1000);
+}
+
+// Direct tribute
+function directTribute() {
+  const tribute = 10;
+  window.open(tributeLinks[tribute], "_blank");
