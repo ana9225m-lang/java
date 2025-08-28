@@ -1,0 +1,12 @@
+const images = [
+  "celest1.jpg",
+  "celest2.jpg",
+  "celest3.jpg"
+  "celest4.jpg"
+"celest5.jpg"
+"celest6.jpg"
+"celest7.jpg"
+"celest8.jpg"
+"celest9.jpg"
+"celest10.jpg"]
+];
